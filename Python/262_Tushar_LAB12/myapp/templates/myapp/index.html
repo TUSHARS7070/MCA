@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScribblePad Document System</title>
+</head>
+<body>
+    <h1>Welcome to ScribblePad Document System</h1>
+    
+    <form id="documentForm">
+        <label for="documentTitle">Document Title:</label>
+        <input type="text" id="documentTitle" name="documentTitle" required>
+        <br>
+        
+        <label for="documentContent">Document Content:</label>
+        <textarea id="documentContent" name="documentContent" rows="4" cols="50" required></textarea>
+        <br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="message" style="display: none;"></div>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('documentForm');
+            const message = document.getElementById('message');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const title = document.getElementById('documentTitle').value;
+                const content = document.getElementById('documentContent').value;
+
+                // You can perform further actions with the title and content data here
+                // For demonstration purposes, we'll just display a message.
+                message.style.display = 'block';
+                message.textContent = `Document titled "${title}" has been submitted.`;
+
+                // You can also send this data to a server for storage or further processing.
+            });
+        });
+    </script>
+</body>
+</html>
